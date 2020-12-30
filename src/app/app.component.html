@@ -1,0 +1,30 @@
+<div class="container d-flex jumbotron">
+
+  <div class="col-8 d-flex justify-content-center">
+    <input class="form-control col-5" type="text" placeholder="enter book name" [(ngModel)]="search" aria-label="Search">
+    <button type="button" class="btn btn-secondary mb-1 ml-1" (click)="searchBooks()">Search</button>
+  </div>
+
+
+
+  <div class="container mt-5">
+    <div class="row justify-content-around">
+      <div class="col-4 my-1" style="height:500px" *ngFor="let i of data">
+        <div class="card p-2 text-center" style="height:100%">
+          <img class="card-img-top" src='{{i.volumeInfo.imageLinks.smallThumbnail}}' height="200px"
+            alt="Card image cap">
+          <div class="card-body col-12">
+            <h6 class="card-title">Card title{{i.volumeInfo.title}}</h6>
+            <p><span class="card-text">Authors: {{i.volumeInfo.authors}}</span></p>
+            <a href="{{i.selfLink}}"><button type="button" class="btn btn-danger ml-3">Book Info</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
